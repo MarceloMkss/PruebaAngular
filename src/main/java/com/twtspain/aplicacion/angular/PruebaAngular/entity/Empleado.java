@@ -14,7 +14,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
@@ -23,55 +22,41 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "empleados")
-@Data 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Empleado implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	
+
 	private Long id;
 
-	
 	private String nombre;
 
-	
 	private String apellido;
 
-	
 	private String email;
-
 
 	private String telefono;
 
 	@Temporal(TemporalType.DATE) // javax.persistence.Temporal
-	
+
 	private Date fechaContratacion; // java.util.Date
-
-	 
-    @ManyToOne(fetch=FetchType.LAZY)	
-//    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})	
-    @JsonIgnore
-    @JoinColumn(name ="trabajo" )	
-	private Trabajo trabajo;
-
 	
 	private Double salario;
 
-	
 	private Double comicion;
-
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})		
-	@JoinColumn(name ="departamento_id" )	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@JoinColumn(name = "departamento_id")
 	private Departamento departamento;
-
 	
-
-
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+	@JoinColumn(name = "trabajo")
+	private Trabajo trabajo;
 
 
 

@@ -1,7 +1,6 @@
 package com.twtspain.aplicacion.angular.PruebaAngular.entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,7 +17,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "departamentos")
-@Data 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Departamento implements Serializable {
@@ -33,12 +32,6 @@ public class Departamento implements Serializable {
 	private Long id;
 	private String nombre;
 	@OneToMany(mappedBy = "departamento", cascade = CascadeType.PERSIST)
-	private List<Empleado> empleados = new ArrayList<Empleado>();
+	private List<Empleado> listaEmpleadosDepartamentos;
 
-	
-	
-	
-	
-	
-	
 }

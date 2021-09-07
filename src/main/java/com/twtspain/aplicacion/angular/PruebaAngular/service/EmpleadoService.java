@@ -2,7 +2,9 @@ package com.twtspain.aplicacion.angular.PruebaAngular.service;
 
 import java.util.List;
 
+import com.twtspain.aplicacion.angular.PruebaAngular.entity.Departamento;
 import com.twtspain.aplicacion.angular.PruebaAngular.entity.Empleado;
+import com.twtspain.aplicacion.angular.PruebaAngular.entity.Trabajo;
 
 public interface EmpleadoService {
 
@@ -12,6 +14,8 @@ public interface EmpleadoService {
 
 	public Empleado save(Empleado empleado);
 	
+	public List<Departamento> findAllDepartamentos();
 	
+	public List<Trabajo> findAllTrabajos();
 
 }

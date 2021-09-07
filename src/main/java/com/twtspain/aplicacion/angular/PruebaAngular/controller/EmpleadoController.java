@@ -20,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.twtspain.aplicacion.angular.PruebaAngular.entity.Departamento;
 import com.twtspain.aplicacion.angular.PruebaAngular.entity.Empleado;
+import com.twtspain.aplicacion.angular.PruebaAngular.entity.Trabajo;
 import com.twtspain.aplicacion.angular.PruebaAngular.service.EmpleadoService;
 
 @CrossOrigin(origins = { "http://localhost:4200" }) // servidor angular
@@ -60,7 +62,7 @@ public class EmpleadoController {
 		return new ResponseEntity<Empleado>(empleado, HttpStatus.OK);
 
 	}
-	
+
 	@PostMapping("/vehiculos")
 	public ResponseEntity<?> create(@Valid @RequestBody Empleado empleado, BindingResult result) {
 
@@ -90,7 +92,15 @@ public class EmpleadoController {
 		response.put("vehiculo", empleadoNew);
 		return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
 	}
-	
-	
+
+	@GetMapping("/empleados/departamentos")
+	public List<Departamento> listarDepartamentos() {
+		return empleadoService.findAllDepartamentos();
+	}
+
+	@GetMapping("/empleados/trabajos")
+	public List<Trabajo> listarTrabajos() {
+		return empleadoService.findAllTrabajos();
+	}
 
 }

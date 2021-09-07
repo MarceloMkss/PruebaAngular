@@ -21,8 +21,7 @@ public class Trabajo implements Serializable {
 
 	// Atributos
 
-	@Id
-	
+	@Id	
 	private String id;
 
 	private String tituloTrabajo;
@@ -32,9 +31,9 @@ public class Trabajo implements Serializable {
 	private Double salarioMax;
 
 	@OneToMany(mappedBy = "trabajo")
-	private List<Empleado> listaEmpleados;
+	private List<Empleado> listaEmpleadosTrabajo;
 
-	
+
 
 
 
